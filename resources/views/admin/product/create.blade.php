@@ -64,6 +64,20 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label class="form-label block text-sm font-bold mb-2">Description</label>
+                                <input
+                                    class="bg-[#222630] px-4 py-3 outline-none w-[280px] text-black rounded-lg border-2 transition-colors duration-100 border-solid focus:border-[#596A95] border-[#2B3040] form-control"
+                                    name="description"
+                                    type="text"
+                                />
+                                @error('description')
+                                <span class="text-danger">{{$message}}</span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="d-grid">
                                 <button class="inline-flex cursor-pointer items-center gap-1 rounded border border-slate-300 bg-gradient-to-b from-slate-50 to-slate-200 px-4 py-2 font-semibold hover:opacity-90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-300 focus-visible:ring-offset-2 active:opacity-100">Submit</button>

@@ -1,28 +1,39 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-// Home
+// =============== HOME =================== //
 Route::get('/', function () {
-    return view('frontend/product-list');
+    return view('frontend.home');
+});
+Route::get('/shop', [ProductController::class, 'showAll']);
+
+
+// ================ CART =================== //
+Route::middleware(['auth'])->group(function () {
+    Route::post('/cart', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
+    Route::delete('/cart/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 });
 
-// Dashboard
+
+// ================ DASHBOARD ============== //
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Profile
+// ================ PROFILE =============== //
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Admin Dashboard
+// ================= ADMIN ================ //
 Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/admin/dashboard', [HomeController::class, 'index'])->name('admin/dashboard');

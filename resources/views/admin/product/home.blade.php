@@ -33,6 +33,7 @@
                                 <th>Title</th>
                                 <th>Category</th>
                                 <th>Price</th>
+                                <th>Description</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -43,6 +44,7 @@
                                 <td class="align-middle">{{ $product -> title  }}</td>
                                 <td class="align-middle">{{ $product -> category }}</td>
                                 <td class="align-middle">{{ $product -> price }}</td>
+                                <td class="align-middle">{{ $product -> description }}</td>
                                 <td class="align-middle">
                                     <div class="btn-group" role="group" aria-label="Basic Example">
                                         <a href="{{ route('admin/products/edit', ['id'=>$product->id]) }}" type="button" class="inline-flex cursor-pointer items-center gap-1 rounded border border-slate-300 bg-gradient-to-b from-slate-50 to-slate-200 px-4 py-2 font-semibold hover:opacity-90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-300 focus-visible:ring-offset-2 active:opacity-100">Edit</a>

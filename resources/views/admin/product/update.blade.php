@@ -32,6 +32,7 @@
                                 @enderror
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col mb-3">
                                 <label class="form-label block text-sm font-bold mb-2">Category</label>
@@ -47,6 +48,7 @@
                                 @enderror
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col mb-3">
                                 <label class="form-label block text-sm font-bold mb-2">Price</label>
@@ -56,6 +58,22 @@
                                     placeholder="Price"
                                     type="text"
                                     value="{{$products->price}}"
+                                />
+                                @error('price')
+                                <span class="text-danger">{{$message}}</span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label class="form-label block text-sm font-bold mb-2">Description</label>
+                                <input
+                                    class="bg-[#222630] px-4 py-3 outline-none w-[280px] text-black rounded-lg border-2 transition-colors duration-100 border-solid focus:border-[#596A95] border-[#2B3040] form-control"
+                                    name="description"
+                                    placeholder="Description"
+                                    type="text"
+                                    value="{{$products->description}}"
                                 />
                                 @error('price')
                                 <span class="text-danger">{{$message}}</span>
