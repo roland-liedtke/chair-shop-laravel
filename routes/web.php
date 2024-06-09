@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 // Home
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend/product-list');
 });
 
 // Dashboard
@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
 // Admin Dashboard
 Route::middleware(['auth', 'admin'])->group(function () {
 
-    Route::get('/admin/dashboard', [HomeController::class, 'index']);
+    Route::get('/admin/dashboard', [HomeController::class, 'index'])->name('admin/dashboard');
 
     Route::get('/admin/products', [ProductController::class, 'index'])->name('admin/products');
 
